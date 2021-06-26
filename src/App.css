@@ -1,38 +1,218 @@
 .App {
-  text-align: center;
+  position: relative;
+  height: 200vh;
+  overflow: hidden;
+  background: radial-gradient(circle, #322143 48%, #110b17 100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App .roomKey {
+  position: absolute;
+  color: white;
+  left: 50%;
+  font-size: 2rem;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Task {
+  position: absolute;
+  -webkit-transform: translate(-100vh);
+          transform: translate(-100vh);
+  overflow: hidden;
+  -webkit-transition: width 0.2s, min-height 0.2s;
+  transition: width 0.2s, min-height 0.2s;
+  width: 320px;
+  min-height: 100px;
+  background-color: #0d1729;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Task .checkContainer {
+  min-width: 64px;
+  background-color: #3078cd;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Task .checkContainer svg {
+  display: none;
+}
+
+.Task .checkContainer .checkBox {
+  position: absolute;
+  width: 39px;
+  height: 39px;
+  left: 13px;
+  top: 13px;
+  cursor: pointer;
+  background: #363636;
+  border: 1px solid #ededed;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: inset 0px 4px 4px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: inset 0px 4px 4px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Task .infoContainer {
+  padding: 1rem;
+  text-align: left;
+  word-break: normal;
+}
+
+.Task .infoContainer p {
+  color: rgba(250, 250, 250, 0.64);
+}
+
+.Task .infoContainer h2 {
+  font-size: 1.3rem;
+}
+
+.Task .closeContainer {
+  position: absolute;
+  cursor: pointer;
+  right: 1rem;
+  top: 1rem;
+}
+
+.completed {
+  /* Do not raster after every transform */
+  will-change: transform;
+  width: 4rem;
+  min-height: 4rem;
+  max-height: 4rem;
+  overflow: hidden;
+}
+
+.completed .checkContainer svg {
+  display: block;
+}
+
+.Form {
+  position: absolute;
+  width: 25%;
+  min-width: 350px;
+  top: 5%;
+  background-color: #3078cd;
+  border-radius: 5px;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  -webkit-transform: translate(-90%, 0);
+          transform: translate(-90%, 0);
+  color: white;
+}
+
+.Form .bookmark {
+  position: absolute;
+  font-size: 1.5rem;
+  right: 0px;
+}
+
+.Form .input-area {
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem 1.5rem;
+  background-color: #0d1729;
+  height: 100%;
+}
+
+.Form .input-area label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.Form .input-area input {
+  border: 0;
+  border-bottom: 2px solid #bfbfbf;
+  outline: 0;
+  font-size: 1rem;
+  color: #ffffff96;
+  padding: 7px 7px;
+  background: #f4f4f410;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  border-radius: 5px 5px 0 0;
+}
+
+.Form .input-area input:focus {
+  padding-bottom: 6px;
+  border-width: 3px;
+  -o-border-image: linear-gradient(to right, #93b613, #3d7c0a);
+     border-image: -webkit-gradient(linear, left top, right top, from(#93b613), to(#3d7c0a));
+     border-image: linear-gradient(to right, #93b613, #3d7c0a);
+  border-image-slice: 1;
+}
+
+.Form .input-area button {
+  color: #2dba33;
+  font-size: 1.2rem;
+  padding: 4px;
+  margin-top: 1rem;
+  background: transparent;
+  border: 1px solid #2dba33;
+  cursor: pointer;
+}
+
+.Form .input-area button:hover {
+  border: 1px solid #15e61f;
+  color: #3cd444;
+}
+
+.Form.room {
+  top: 20%;
+  background-color: #cd308e;
+}
+
+.Form:hover {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.refresh {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  border-radius: 50%;
+  background-color: #1bac33;
+  width: 6rem;
+  height: 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.refresh:hover {
+  background-color: #1dbe2a;
+}
+
+canvas {
+  z-index: 1;
 }
