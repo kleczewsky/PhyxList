@@ -24,7 +24,7 @@ function App() {
             id: nanoid(),
             name: "Witaj w PhyxList!",
             description:
-                "PhyxList to lista zadań napędzana silnikiem matter.js",
+                "PhyxList to lista zadań napędzana silnikiem fizyki matter.js",
             isCompleted: false,
         },
         {
