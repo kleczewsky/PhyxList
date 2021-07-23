@@ -202,12 +202,16 @@ function setupTasks() {
             // set position styles for the task
             bodyDom.style.transform =
                 "translate( " +
-                (body.position.x * PhyxList.scale - bodyDom.offsetWidth / 2) +
+                Math.floor(
+                    body.position.x * PhyxList.scale - bodyDom.offsetWidth / 2
+                ) +
                 "px, " +
-                (body.position.y * PhyxList.scale - bodyDom.offsetHeight / 2) +
+                Math.floor(
+                    body.position.y * PhyxList.scale - bodyDom.offsetHeight / 2
+                ) +
                 "px )" +
                 "rotate( " +
-                body.angle +
+                body.angle.toFixed(3) +
                 "rad )";
         });
         window.requestAnimationFrame(update);

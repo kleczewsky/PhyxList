@@ -70,6 +70,7 @@ function App() {
 
     useEffect(() => {
         initPhysics();
+        refreshTasks();
     }, []);
 
     useEffect(() => {
@@ -109,7 +110,7 @@ function App() {
         if (roomKey != null || roomKey != undefined) {
             axios
                 .delete(
-                    "http://127.0.0.1:8000/api/room/" +
+                    "https://phyxlist.herokuapp.com/api/room/" +
                         roomKey +
                         "/tasks/" +
                         deletedTask.apiId
@@ -136,7 +137,9 @@ function App() {
         if (roomKey != null || roomKey != undefined) {
             axios
                 .post(
-                    "http://127.0.0.1:8000/api/room/" + roomKey + "/tasks",
+                    "https://phyxlist.herokuapp.com/api/room/" +
+                        roomKey +
+                        "/tasks",
                     newTask
                 )
                 .then(function (response) {
@@ -169,7 +172,7 @@ function App() {
         if (roomKey != null || roomKey != undefined) {
             axios
                 .put(
-                    "http://127.0.0.1:8000/api/room/" +
+                    "https://phyxlist.herokuapp.com/api/room/" +
                         roomKey +
                         "/tasks/" +
                         updatedTask.apiId +
@@ -191,7 +194,7 @@ function App() {
         setRoomKey(key);
 
         axios
-            .get("http://127.0.0.1:8000/api/room/" + key + "/tasks")
+            .get("https://phyxlist.herokuapp.com/api/room/" + key + "/tasks")
             .then(function (response) {
                 if (response.status === 201) {
                     toast.success("⭐ Stworzono nowy pokoj o kluczu: " + key);
