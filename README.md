@@ -1,33 +1,33 @@
 # PhyxList!
 
-PhyxList to lista zadań do zrobienia napędzana silnikiem fizyki [matter.js](https://brm.io/matter-js/).
+PhyxList is a to-do list powered by the physics engine [matter.js](https://brm.io/matter-js/).
 
-Rendererem silnika został DOM przeglądarki za skutkiem sprytnego skalowania.
+The engine's renderer is the browser's DOM with help of some clever scaling and translating.
 
-Umożliwiło to tworzenie obiektów fizycznych odzworowanych na elementach DOM`u
+This made it possible to create physical objects mirrored on DOM elements
 
-## Pokoje
-
----
-
-Aplikacja została wyposażona w system pokoi, które użytkownik może tworzyć, bądź do których może dołączać.
-
-W ten sposób można dzielić listę zadań z innymi użytkownikami.
-
-## Instrukcja
+## Rooms
 
 ---
 
-Z lewej strony znajdują się formularze dołączenia do pokoju, oraz dodawania zadań do listy.
+The application was equipped with a system of rooms that the user can create or join.
 
-Zadania są odwzorowane w silniku fizyki, tak więc można nimi manipulować.
+In this way, the task list can be shared with other users.
 
-Robi się to za pomocą prawego przycisku myszy w formie przytrzymaj i upuść.
+## Instructions
+
+---
+
+On the left side there are forms for joining a room, and adding tasks to the list.
+
+The tasks are mapped to the physics engine, so they can be manipulated.
+
+This is done by using the right mouse button in a hold and drop form.
 
 ## API
 
 ---
 
-Do poprawnego działania aplikacji jest potrzebny serwer wystawiający API przygotowane przeze mnie w Laravelu.
+In order for the application to work properly, you need a server that exposes the API I prepared in Laravel.
 
-Na potrzeby demo, korzystam z darmowych usług heroku.com oraz clever-cloud.com
+For the purposes of the demo, I use the free services heroku.com and clever-cloud.com
